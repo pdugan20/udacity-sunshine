@@ -30,30 +30,30 @@ public class ForecastFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         // Dummy data for ListView
         String[] forecastArray = {
-            "Today - Sunny - 88/63",
-            "Tomorrow - Foggy - 70/40",
-            "Wednesday - Cloudy - 72/63",
+                "Today - Sunny - 88/63",
+                "Tomorrow - Foggy - 70/40",
+                "Wednesday - Cloudy - 72/63",
         };
 
         List<String> weekForecast = new ArrayList<String>(
-             Arrays.asList(forecastArray));
+                Arrays.asList(forecastArray));
 
         // Initalize the adapter
         mForecastAdapter =
-            new ArrayAdapter<String>(
-                    // Current context
-                    getActivity(),
-                    // ID of list item layout
-                    R.layout.list_item_forecast,
-                    // ID of textview
-                    R.id.list_item_forecast_textview,
-                    // Dummy data
-                    weekForecast);
+                new ArrayAdapter<String>(
+                        // Current context
+                        getActivity(),
+                        // ID of list item layout
+                        R.layout.list_item_forecast,
+                        // ID of textview
+                        R.id.list_item_forecast_textview,
+                        // Dummy data
+                        weekForecast);
 
         // Get a reference to the ListView
         // rootView refers to the rootView of the fragment b/c the layout tree is smaller
@@ -82,7 +82,6 @@ public class ForecastFragment extends Fragment {
                 // Possible parameters are available at OWMs forecast API page, at
                 // http://openweathermap.org/API#forecast
                 URL url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7");
-
                 // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
